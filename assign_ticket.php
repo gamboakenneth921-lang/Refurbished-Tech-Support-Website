@@ -3,10 +3,11 @@ require 'db.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-$id = $_POST['id'];
+$assign_id = $_POST['assign_id'];
+$employee = $_POST['employee'];
 
 
-mysqli_query($conn, "UPDATE tickets SET status='Assigned' WHERE id='$id' ");
+mysqli_query($conn, "UPDATE tickets SET status='Assigned', assigned_to='$employee' WHERE id='$assign_id' ");
 
 header("Location: dashboard.php");
 exit();
